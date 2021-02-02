@@ -79,7 +79,7 @@ python manage.py createsuperuser
 
 ```$ curl -X GET http://127.0.0.1:8000/orders/api```
 
-   - List all Orders. 
+   - List all Orders of specific client. 
    - Request Headers: authentication token.
    - Request Arguments: client's id.
    - Return an list of orders objects for specific client.
