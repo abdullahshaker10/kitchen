@@ -12,10 +12,13 @@ USER_CHOICES = (
 class CustomUser(AbstractUser):
     user_type = models.CharField(choices=USER_CHOICES, max_length=50)
 
+    def __str__(self):
+        return str(self.pk)
+
 
 class Chief(models.Model):
     user = models.OneToOneField(
-        CustomUser, primary_key=True, on_delete=models.CASCADE)
+        CustomUser, primary_key=True, on_delete=models.CASCADE, related_name='chief')
     is_client_admin = models.BooleanField(default=False)
     max_time_minutes = models.PositiveIntegerField(default=0)
 
